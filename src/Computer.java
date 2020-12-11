@@ -31,6 +31,7 @@ public class Computer {
     public int getHardDisk() {
         return hardDisk;
     }
+    public OperatingSystem getOs() { return os; }
 
     public void installOS(OperatingSystem os){
         if (hardDisk>=os.getOsSpaceRequeriment()&&ramMemory>=os.getOsMemmoryRequerement()){
@@ -38,10 +39,15 @@ public class Computer {
             if (os!=null){
                 this.ramMemory=ramMemory-os.getOsMemmoryRequerement();
                 this.hardDisk=hardDisk-os.getOsSpaceRequeriment();
-                System.out.println("El sistema instalado es " + os.getOsName());
             }
         } else {
             System.out.println("No hay espacio suficiente o no hay suficiente ram");
         }
+    }
+
+    public void formataOs(OperatingSystem os){
+        this.os=null;
+        this.ramMemory=ramMemory+os.getOsMemmoryRequerement();
+        this.hardDisk=hardDisk+os.getOsSpaceRequeriment();
     }
 }

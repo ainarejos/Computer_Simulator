@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class OperatingSystem {
     private String osName;
     private String osVersion;
@@ -5,7 +7,7 @@ public class OperatingSystem {
     private boolean osOnlyCommand;
     private int osSpaceRequeriment;
     private int osMemmoryRequerement;
-    private Software[] osSoftware;
+    private ArrayList<Software> osSoftware;
     // Constructor.
     public OperatingSystem(String osName, String osVersion, String osArchitecture, boolean osOnlyCommand, int osSpaceRequeriment, int osMemmoryRequerement){
         this.osName=osName;
@@ -14,6 +16,7 @@ public class OperatingSystem {
         this.osOnlyCommand=osOnlyCommand;
         this.osSpaceRequeriment=osSpaceRequeriment;
         this.osMemmoryRequerement=osMemmoryRequerement;
+        this.osSoftware=new ArrayList<Software>();
     }
 
     // Getters y setters.
@@ -53,11 +56,13 @@ public class OperatingSystem {
     public int getOsSpaceRequeriment() {
         return osSpaceRequeriment;
     }
-    public Software[] getOsSoftware() { return osSoftware; }
+    public ArrayList<Software> getOsSoftware() { return osSoftware; }
 
     public void installSoftware(Software osSoftware){
-        int i=0;
-        this.osSoftware[i]=osSoftware;
-        i++;
+        this.osSoftware.add(osSoftware);
+    }
+
+    public void unInstallSoftware(Software osSoftware){
+        this.osSoftware.remove(osSoftware);
     }
 }
