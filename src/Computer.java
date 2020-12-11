@@ -45,9 +45,12 @@ public class Computer {
         }
     }
 
-    public void formataOs(OperatingSystem os){
+    public void formataOs(OperatingSystem os, Software s1, Software s2){
         this.os=null;
         this.ramMemory=ramMemory+os.getOsMemmoryRequerement();
         this.hardDisk=hardDisk+os.getOsSpaceRequeriment();
+        setHardDisk(getHardDisk()+s1.getSoftwareRequierement()+ s2.getSoftwareRequierement());
+        setRamMemory(getRamMemory()+s1.getSoftwareRamMemmoryRequierement()+ s2.getSoftwareRamMemmoryRequierement());
+
     }
 }

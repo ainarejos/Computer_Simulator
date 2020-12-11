@@ -58,11 +58,17 @@ public class OperatingSystem {
     }
     public ArrayList<Software> getOsSoftware() { return osSoftware; }
 
-    public void installSoftware(Software osSoftware){
-        this.osSoftware.add(osSoftware);
+    public void installSoftware(Software osSoftware, Computer pc){
+        if (osSoftware.getSoftwareRequierement() <= pc.getHardDisk() && osSoftware.getSoftwareRamMemmoryRequierement() <= pc.getRamMemory()){
+            this.osSoftware.add(osSoftware);
+            pc.setHardDisk(pc.getHardDisk()-osSoftware.getSoftwareRequierement());
+            pc.setRamMemory(pc.getRamMemory()-osSoftware.getSoftwareRamMemmoryRequierement());
+        }
+
     }
 
     public void unInstallSoftware(Software osSoftware){
         this.osSoftware.remove(osSoftware);
+
     }
 }
