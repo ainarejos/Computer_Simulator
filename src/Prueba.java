@@ -22,6 +22,7 @@ public class Prueba {
             System.out.print(app.getSoftwareName() + " ");
         }
         System.out.println(" y el espacio de pc despues de instalar los dos programas es: " + pc1.getRamMemory() + "Gb de Ram y " + pc1.getHardDisk() + "GB de almacenamiento.");
+        //SE DESINSTALA S2.
         pc1.getOs().unInstallSoftware(s2, pc1);
         System.out.println("- Se ha desintalado S2 y la memoria se queda en: " + pc1.getRamMemory() + "GB de Ram y " + pc1.getHardDisk() + "Gb de almacenamiento");
         //FORMATEO DE PC1.
