@@ -15,14 +15,17 @@ public class Prueba {
         pc1.installOS(os1);
         System.out.println("- Se instala os1 en pc1, la memoria y la ram de pc1 se quedan en: " + pc1.getRamMemory() +"GB de Ram y " + pc1.getHardDisk() + "GB de almacenamiento.");
         //INSTALACIÓN DE SO1 Y SO2.
+        pc1.getOs().installSoftware(s1, pc1);
         pc1.getOs().installSoftware(s2, pc1);
         System.out.print("- Se han instalado los siguientes programas: ");
         for (Software app : pc1.getOs().getOsSoftware()){
             System.out.print(app.getSoftwareName() + " ");
         }
-        System.out.println(" y el espacio de pc despues de intalar los dos programas es: " + pc1.getRamMemory() + "Gb de Ram y " + pc1.getHardDisk() + "GB de almacenamiento.");
+        System.out.println(" y el espacio de pc despues de instalar los dos programas es: " + pc1.getRamMemory() + "Gb de Ram y " + pc1.getHardDisk() + "GB de almacenamiento.");
+        pc1.getOs().unInstallSoftware(s2, pc1);
+        System.out.println("- Se ha desintalado S2 y la memoria se queda en: " + pc1.getRamMemory() + "GB de Ram y " + pc1.getHardDisk() + "Gb de almacenamiento");
         //FORMATEO DE PC1.
-        pc1.formataOs(os1, s1, s2);
+        pc1.formataOs(os1, s1);
         System.out.println("- Se realiza un formateo y el pc se queda con: : " + pc1.getRamMemory() + "Gb de ram y  " + pc1.getHardDisk() + "Gb de almacenamiento");
     }
 }

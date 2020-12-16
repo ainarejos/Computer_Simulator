@@ -67,8 +67,9 @@ public class OperatingSystem {
 
     }
 
-    public void unInstallSoftware(Software osSoftware){
+    public void unInstallSoftware(Software osSoftware, Computer pc){
         this.osSoftware.remove(osSoftware);
-
+        pc.setHardDisk(pc.getHardDisk()+osSoftware.getSoftwareRequierement());
+        pc.setRamMemory(pc.getRamMemory()+osSoftware.getSoftwareRamMemmoryRequierement());
     }
 }
